@@ -24,4 +24,7 @@ p {
 .verse {
     position: fixed;
     width: 100%;
+    visibility: hidden;
 }
+
+
