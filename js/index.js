@@ -18,7 +18,7 @@ class Verse {
         this.timeStart = Date.now();
 
         document.getElementById('verses').insertAdjacentHTML('beforeend',
-            '<div id=verse-' + this.key + '" class="verse">' +
+            '<div id="verse-' + this.key + '" class="verse">' +
             this.text
             + '</div>'
         );
