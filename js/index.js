@@ -53,7 +53,7 @@ function drawFrame() {
         } else {
             verseElem.style.visibility = 'hidden';
         }
-        
+
         if (partPassed >= 1) {
             verse.active = false;
         }
@@ -89,17 +89,34 @@ function main() {
 
     function processKeydown(event) {
         verses.at(-1).activate();
+        // window.open('index.html')
+    }
+
+    function processFileInput() {
+        verses.at(-1).activate();
+
+        // document.getElementById('qwe').innerHTML = "good "  + " ee";
+        document.getElementById('qwe').innerHTML = "good " + document.forms['fileInputForm'].elements[0].files[0].name + " ee";
     }
 
     timerUpdateFrame = setInterval(updateFrame, 5);
     document.onkeydown = processKeydown;
-
-    // document.onclick = function() {
-    //     clearInterval(timerUpdateFrame);
-    // };
+    document.getElementById('fileInput').oninput = processFileInput;
 
 
-    // drawFrame(500);
+
+    // let text;
+    // let response;
+
+    // fetch("file://./files/fileA.txt")
+    //     .then((res) => res.text())
+    //     .then((text) => {
+    //         // do something with "text"
+    //     })
+    //     .catch((e) => console.error(e));
+
 }
+
+
 
 main();

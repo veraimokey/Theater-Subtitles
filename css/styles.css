@@ -4,7 +4,8 @@ body {
     padding: 0;
     height: 100%;
 
-    background-color: #000;
+    /* background-color: #000; */
+    background-color: #BBB;
 
     font-family: "Alegreya", serif;
     font-optical-sizing: auto;
