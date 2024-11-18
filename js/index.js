@@ -92,28 +92,21 @@ function main() {
         // window.open('index.html')
     }
 
+    let fileReader = new FileReader();
+
     function processFileInput() {
         verses.at(-1).activate();
 
-        // document.getElementById('qwe').innerHTML = "good "  + " ee";
-        document.getElementById('qwe').innerHTML = "good " + document.forms['fileInputForm'].elements[0].files[0].name + " ee";
+        fileReader.readAsText(document.forms['fileInputForm'].elements[0].files[0]);
+        // document.getElementById('qwe').innerHTML = "good " + document.forms['fileInputForm'].elements[0].files[0].type + " ee";
     }
 
     timerUpdateFrame = setInterval(updateFrame, 5);
     document.onkeydown = processKeydown;
     document.getElementById('fileInput').oninput = processFileInput;
 
-
-
-    // let text;
-    // let response;
-
-    // fetch("file://./files/fileA.txt")
-    //     .then((res) => res.text())
-    //     .then((text) => {
-    //         // do something with "text"
-    //     })
-    //     .catch((e) => console.error(e));
+    fileReader.onerror = function () { alert(fileReader.error); };
+    fileReader.onload = function () { alert(fileReader.result); };
 
 }
 
