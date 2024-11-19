@@ -31,6 +31,24 @@ class Verse {
 
 }
 
+class DataManager {
+    fileReader = new FileReader();
+
+    constructor() {
+        this.fileReader.onerror = function () { alert(this.fileReader.error); }.bind(this);
+        this.fileReader.onload = function () { alert(this.fileReader.result); }.bind(this);
+
+
+    }
+
+    readData() {
+        // verses.at(-1).activate();
+
+        this.fileReader.readAsText(document.forms['fileInputForm'].elements[0].files[0]);
+        // document.getElementById('qwe').innerHTML = "good " + document.forms['fileInputForm'].elements[0].files[0].type + " ee";
+    }
+}
+
 let verses = new Array();
 
 function drawFrame() {
@@ -92,21 +110,15 @@ function main() {
         // window.open('index.html')
     }
 
-    let fileReader = new FileReader();
+    let dataManager = new DataManager();
 
     function processFileInput() {
-        verses.at(-1).activate();
-
-        fileReader.readAsText(document.forms['fileInputForm'].elements[0].files[0]);
-        // document.getElementById('qwe').innerHTML = "good " + document.forms['fileInputForm'].elements[0].files[0].type + " ee";
+        dataManager.readData();
     }
 
     timerUpdateFrame = setInterval(updateFrame, 5);
     document.onkeydown = processKeydown;
     document.getElementById('fileInput').oninput = processFileInput;
-
-    fileReader.onerror = function () { alert(fileReader.error); };
-    fileReader.onload = function () { alert(fileReader.result); };
 
 }
 
