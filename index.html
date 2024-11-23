@@ -14,13 +14,17 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles-fileInputButton.css">
 </head>
 
 <body>
     <!-- <p id="qwe"> </p> -->
 
     <form name="fileInputForm">
-        <input type="file" id="fileInput" multiple />
+        <label class="fileInputButton">
+            <input id="fileInput" type="file" multiple name="file">
+            <span>Загрузить файлы субтитров</span>
+        </label>
     </form>
 
     <div id="verses">
@@ -28,6 +32,7 @@
     </div>
 
     <script src="js/index.js"></script>
+    <script src="js/index-fileInputButton.js"></script>
 </body>
 
 </html>
