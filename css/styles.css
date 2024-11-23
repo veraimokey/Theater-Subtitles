@@ -12,13 +12,16 @@ body {
     font-weight: 400;
     font-style: normal;
 
-    font-size: 36px;
 
     overflow: hidden;
+
+    color: #fff;
 }
 
 p {
     text-align: center;
+
+    font-size: 36px;
     color: #fff;
 }
 
@@ -27,5 +30,3 @@ p {
     width: 100%;
     visibility: hidden;
 }
-
-

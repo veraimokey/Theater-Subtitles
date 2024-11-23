@@ -1,54 +1,5 @@
 'use stick'
 
-class Verse {
-    text;
-    duration;
-    key;
-
-    active = false;
-    timeStart;
-
-    constructor(text, duration, key) {
-        this.text = text;
-        this.duration = duration;
-        this.key = key;
-
-        document.getElementById('verses').insertAdjacentHTML('beforeend',
-            '<div id="verse-' + this.key + '" class="verse">' +
-            this.text
-            + '</div>'
-        );
-    }
-
-    activate() {
-        this.timeStart = Date.now();
-
-        if (this.active == true) return;
-
-        this.active = true;
-
-    }
-
-}
-
-class DataManager {
-    fileReader = new FileReader();
-
-    constructor() {
-        this.fileReader.onerror = function () { alert(this.fileReader.error); }.bind(this);
-        this.fileReader.onload = function () { alert(this.fileReader.result); }.bind(this);
-
-
-    }
-
-    readData() {
-        // verses.at(-1).activate();
-
-        this.fileReader.readAsText(document.forms['fileInputForm'].elements[0].files[0]);
-        // document.getElementById('qwe').innerHTML = "good " + document.forms['fileInputForm'].elements[0].files[0].type + " ee";
-    }
-}
-
 let verses = new Array();
 
 function drawFrame() {
@@ -112,13 +63,9 @@ function main() {
 
     let dataManager = new DataManager();
 
-    function processFileInput() {
-        dataManager.readData();
-    }
-
     timerUpdateFrame = setInterval(updateFrame, 5);
     document.onkeydown = processKeydown;
-    document.getElementById('fileInput').oninput = processFileInput;
+    document.getElementById('fileInput').oninput = dataManager.readData.bind(dataManager);
 
 }
 

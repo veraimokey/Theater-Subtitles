@@ -3,7 +3,7 @@
 .fileInputButton {
     position: relative;
     display: inline-block;
-    margin-left: 10px;
+    margin: 10px;
 }
 
 .fileInputButton span {
