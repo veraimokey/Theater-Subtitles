@@ -1,12 +1,10 @@
-/* --- FILE INPUT BUTTON --- */
-
-.fileInputButton {
+.button {
     position: relative;
     display: inline-block;
     margin: 10px;
 }
 
-.fileInputButton span {
+.button span {
     position: relative;
     display: inline-block;
     cursor: pointer;
@@ -31,7 +29,7 @@
     box-shadow: 0 0 0 0.3rem rgba(127, 188, 254, 0.5);
 }
 
-.fileInputButton input[type=file] {
+.button input {
     position: absolute;
     z-index: -1;
     opacity: 0;
@@ -41,21 +39,21 @@
 }
 
 /* Focus */
-/* .fileInputButton input[type=file]:focus+span { */
-    /* box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 1.); */
-    /* box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25); */
+/* .button input[type=file]:focus+span { */
+/*     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 1.); */
+/*     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25); */
 /* } */
 
 /* Hover/active */
-.fileInputButton:hover span {
+.button:hover span {
     background-color: #59be6e;
 }
 
-.fileInputButton:active span {
+.button:active span {
     background-color: #2E703A;
 }
 
 /* Disabled */
-.fileInputButton input[type=file]:disabled+span {
+.button input:disabled+span {
     background-color: #eee;
 }

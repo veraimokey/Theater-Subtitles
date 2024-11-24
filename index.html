@@ -14,17 +14,21 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/styles-fileInputButton.css">
+    <link rel="stylesheet" href="css/styles-controlForm.css">
     <link rel="stylesheet" href="css/styles-filesList.css">
 </head>
 
 <body>
     <!-- <p id="qwe"> </p> -->
 
-    <form name="fileInputForm">
-        <label class="fileInputButton">
+    <form name="controlForm">
+        <label class="button">
             <input id="fileInput" class="fileInputButtonInput" type="file" multiple name="file">
             <span>Загрузить файлы субтитров</span>
+        </label>
+        <label class="button">
+            <input id="fileInput" class="fileInputButtonInput" type="button" multiple name="file">
+            <span>Запустить спектакль</span>
         </label>
     </form>
 
@@ -36,7 +40,7 @@
 
     </div>
 
-    <script src="js/index-fileInputButton.js"></script>
+    <script src="js/index-controlForm.js"></script>
 
     <script src="js/DataManager.js"></script>
     <script src="js/Verse.js"></script>
