@@ -61,11 +61,11 @@ function main() {
         // window.open('index.html')
     }
 
-    let dataManager = new DataManager('controlForm', 'filesList');
 
     timerUpdateFrame = setInterval(updateFrame, 5);
-    document.onkeydown = processKeydown;
+    document.onkeydown = processKeydown();
 
+    let controller = new Controller('controlForm', 'filesList');
 }
 
 

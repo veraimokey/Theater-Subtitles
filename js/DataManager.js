@@ -2,18 +2,18 @@
 
 class DataManager {
     fileReader = new FileReader();
-    fileInputFormID;
-    filesListID;
 
-    constructor(fileInputFormID, filesListID) {
-        this.fileInputFormID = fileInputFormID;
-        this.filesListID = filesListID;
+    fileInputNode;
+    filesListNode;
+
+    constructor(fileInputNode, filesListNode) {
+        this.fileInputNode = fileInputNode;
+        this.filesListNode = filesListNode;
 
         this.fileReader.onerror = function () { alert(this.fileReader.error); }.bind(this);
         this.fileReader.onload = function () { alert(this.fileReader.result); }.bind(this);
 
-        //< same as document.getElementById('fileInput')
-        document.forms[this.fileInputFormID].elements[0].oninput = this.readData.bind(this);
+        this.fileInputNode.oninput = this.readData.bind(this);
     }
 
     readData() {
@@ -23,14 +23,14 @@ class DataManager {
         // alert(document.forms['fileInputForm'].elements[0].files.length);
         // document.getElementById('qwe').innerHTML = "good " + document.forms['fileInputForm'].elements[0].files[0].type + " ee";
 
-        while (document.getElementById(this.filesListID).firstChild != null) {
-            document.getElementById(this.filesListID).firstChild.remove();
+        while (this.filesListNode.firstChild != null) {
+            this.filesListNode.firstChild.remove();
         }
 
-        for (let file of document.forms[this.fileInputFormID].elements[0].files) {
+        for (let file of this.fileInputNode.files) {
             // this.fileReader.readAsText(file);
 
-            document.getElementById(this.filesListID).insertAdjacentHTML('beforeend',
+            this.filesListNode.insertAdjacentHTML('beforeend',
                 '<li>' +
                 file.name +
                 '</li>'
