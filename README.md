@@ -1,2 +1,3 @@
 # Theater-Subtitles
- Web page for playing subtitles during a play on stage
+
+Local web app for playing subtitles during a play on stage
