@@ -58,12 +58,13 @@ function main() {
 
     function processKeydown(event) {
         verses.at(-1).activate();
+        // alert(event);
         // window.open('index.html')
     }
 
 
     timerUpdateFrame = setInterval(updateFrame, 5);
-    document.onkeydown = processKeydown();
+    document.onkeydown = processKeydown;
 
     let controller = new Controller('controlForm', 'filesList');
 }
