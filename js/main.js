@@ -61,7 +61,7 @@ function main() {
         // window.open('index.html')
     }
 
-    let dataManager = new DataManager('fileInputForm');
+    let dataManager = new DataManager('fileInputForm', 'filesList');
 
     timerUpdateFrame = setInterval(updateFrame, 5);
     document.onkeydown = processKeydown;
