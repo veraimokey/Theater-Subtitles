@@ -61,11 +61,10 @@ function main() {
         // window.open('index.html')
     }
 
-    let dataManager = new DataManager();
+    let dataManager = new DataManager('fileInputForm');
 
     timerUpdateFrame = setInterval(updateFrame, 5);
     document.onkeydown = processKeydown;
-    document.getElementById('fileInput').oninput = dataManager.readData.bind(dataManager);
 
 }
 

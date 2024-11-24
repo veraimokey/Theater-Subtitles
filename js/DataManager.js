@@ -2,12 +2,16 @@
 
 class DataManager {
     fileReader = new FileReader();
+    fileInputFormID;
 
-    constructor() {
+    constructor(fileInputFormID) {
+        this.fileInputFormID = fileInputFormID;
+
         this.fileReader.onerror = function () { alert(this.fileReader.error); }.bind(this);
         this.fileReader.onload = function () { alert(this.fileReader.result); }.bind(this);
 
-
+        //< same as document.getElementById('fileInput')
+        document.forms[this.fileInputFormID].elements[0].oninput = this.readData.bind(this);
     }
 
     readData() {
