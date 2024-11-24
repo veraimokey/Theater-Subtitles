@@ -29,6 +29,10 @@
     box-shadow: 0 0 0 0.3rem rgba(127, 188, 254, 0.5);
 }
 
+.button .hoveredButton {
+    background-color: #59be6e;
+}
+
 .button input {
     position: absolute;
     z-index: -1;
@@ -45,9 +49,9 @@
 /* } */
 
 /* Hover/active */
-.button:hover span {
+/* .button:hover span {
     background-color: #59be6e;
-}
+} */
 
 .button:active span {
     background-color: #2E703A;
