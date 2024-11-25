@@ -1,7 +1,6 @@
 'use stick'
 
 class DataManager {
-    fileReader = new FileReader();
 
     fileInputNode;
     filesListNode;
@@ -10,8 +9,8 @@ class DataManager {
         this.fileInputNode = fileInputNode;
         this.filesListNode = filesListNode;
 
-        this.fileReader.addEventListener('error', function () { alert(this.fileReader.error); }.bind(this));
-        this.fileReader.addEventListener('load', function () { alert(this.fileReader.result); }.bind(this));
+        // this.fileReader.addEventListener('error', function () { alert(this.fileReader.error); }.bind(this));
+        // this.fileReader.addEventListener('load', function () { alert(this.fileReader.result); }.bind(this));
 
         this.fileInputNode.addEventListener('input', this.readData.bind(this));
     }
@@ -28,8 +27,6 @@ class DataManager {
         }
 
         for (let file of this.fileInputNode.files) {
-            // this.fileReader.readAsText(file);
-
             this.filesListNode.insertAdjacentHTML('beforeend',
                 '<li>' +
                 file.name +
@@ -37,6 +34,26 @@ class DataManager {
             );
         }
 
+        let readFilePromises = new Array();
+        for (let file of this.fileInputNode.files) {
+            readFilePromises.push(this.readFile(file));
+            // .then(() => { }, (error) => { alert("error: in readFile " + error) });
+        }
 
+    }
+
+    async readFile(file) {
+        let fileReader = new FileReader();
+
+        await (new Promise(function (resolve, reject) {
+            fileReader.onerror = function () { alert(fileReader.error); reject(); };
+            fileReader.onload = function () { alert(fileReader.result); resolve(); };
+
+            fileReader.readAsText(file);
+        }.bind(this)));
+
+
+        fileReader.onerror = undefined;
+        fileReader.onload = undefined;
     }
 }
