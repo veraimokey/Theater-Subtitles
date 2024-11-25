@@ -10,10 +10,10 @@ class DataManager {
         this.fileInputNode = fileInputNode;
         this.filesListNode = filesListNode;
 
-        this.fileReader.onerror = function () { alert(this.fileReader.error); }.bind(this);
-        this.fileReader.onload = function () { alert(this.fileReader.result); }.bind(this);
+        this.fileReader.addEventListener('error', function () { alert(this.fileReader.error); }.bind(this));
+        this.fileReader.addEventListener('load', function () { alert(this.fileReader.result); }.bind(this));
 
-        this.fileInputNode.oninput = this.readData.bind(this);
+        this.fileInputNode.addEventListener('input', this.readData.bind(this));
     }
 
     readData() {

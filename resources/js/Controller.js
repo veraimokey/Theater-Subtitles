@@ -25,5 +25,7 @@ class Controller {
             document.forms[this.controlFormID].elements[this.startInputID],
         );
 
+        window.addEventListener('keydown', this.playControl.synchronizeAct.bind(this.playControl));
+
     }
 }

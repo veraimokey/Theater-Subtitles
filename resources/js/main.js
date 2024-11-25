@@ -2,33 +2,6 @@
 
 let verses = new Array();
 
-function drawFrame() {
-    for (let verse of verses) {
-
-        let verseElem = document.getElementById('verse-' + verse.key);
-
-        let positionBegin = +window.innerHeight;
-        let positionEnd = -verseElem.offsetHeight;
-
-        let partPassed = (Date.now() - verse.timeStart) / verse.duration;
-
-        verseElem.style.top = (
-            +positionBegin * (+1 - partPassed) +
-            +positionEnd * (+partPassed)
-        ) + 'px';
-
-        if (partPassed > 0 && partPassed < 1) {
-            verseElem.style.visibility = 'visible';
-        } else {
-            verseElem.style.visibility = 'hidden';
-        }
-
-        if (partPassed >= 1) {
-            verse.active = false;
-        }
-    }
-}
-
 function main() {
     let timerUpdateFrame;
 
@@ -49,22 +22,18 @@ function main() {
         ",
         6000, 0));
 
-    function updateFrame() {
-
-        // document.getElementById('qwe').innerHTML = "good " + time + " ee";
-
-        drawFrame();
-    }
+    // function updateFrame() {
+    // }
 
     function processKeydown(event) {
-        verses.at(-1).activate();
+        // verses.at(-1).activate();
         // alert(event);
         // window.open('index.html')
     }
 
 
-    timerUpdateFrame = setInterval(updateFrame, 5);
-    document.onkeydown = processKeydown;
+    // timerUpdateFrame = setInterval(updateFrame, 5);
+    window.addEventListener('keydown', processKeydown);
 
     let controller = new Controller('controlForm', 'fileInput', 'startInput', 'filesList');
 }

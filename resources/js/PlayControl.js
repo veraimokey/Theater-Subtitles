@@ -3,14 +3,20 @@
 class PlayControl {
     startInputNode;
 
+    performanceWin;
+
     constructor(startInputNode) {
         this.startInputNode = startInputNode;
 
-        this.startInputNode.onclick = this.startPlay.bind(this);
+        this.startInputNode.addEventListener('click', this.startPlay.bind(this));
     }
 
     startPlay() {
-        window.open('index.html');
+        this.performanceWin = window.open('resources/html/performance-index.html', 'performancePage');
+    }
+
+    synchronizeAct() {
+        this.performanceWin.postMessage("message", "*");
     }
 
 }
