@@ -66,7 +66,7 @@ function main() {
     timerUpdateFrame = setInterval(updateFrame, 5);
     document.onkeydown = processKeydown;
 
-    let controller = new Controller('controlForm', 'filesList');
+    let controller = new Controller('controlForm', 'fileInput', 'startInput', 'filesList');
 }
 
 

@@ -8,14 +8,15 @@
     <!-- <link rel="icon" href="data:,"> -->
 
     <!-- Font block -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"> -->
+    <link rel="stylesheet" href="resources/css/fonts.css">
 
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/styles-controlForm.css">
-    <link rel="stylesheet" href="css/styles-filesList.css">
+    <link rel="stylesheet" href="resources/css/styles.css">
+    <link rel="stylesheet" href="resources/css/styles-controlForm.css">
+    <link rel="stylesheet" href="resources/css/styles-filesList.css">
 </head>
 
 <body>
@@ -23,11 +24,12 @@
 
     <form name="controlForm">
         <label class="button">
-            <input id="fileInput" class="fileInputButtonInput" type="file" multiple name="file">
+            <!-- class="fileInputButtonInput" name="file" -->
+            <input id="fileInput" type="file" multiple>
             <span>Загрузить файлы субтитров</span>
         </label>
         <label class="button">
-            <input id="оуца" class="уат" type="button" multiple name="file">
+            <input id="startInput" type="button">
             <span>Запустить спектакль</span>
         </label>
     </form>
@@ -40,13 +42,13 @@
 
     </div>
 
-    <script src="js/index-controlForm.js"></script>
+    <script src="resources/js/index-controlForm.js"></script>
 
-    <script src="js/DataManager.js"></script>
-    <script src="js/Verse.js"></script>
-    <script src="js/PlayControl.js"></script>
-    <script src="js/Controller.js"></script>
-    <script src="js/main.js"></script>
+    <script src="resources/js/DataManager.js"></script>
+    <script src="resources/js/Verse.js"></script>
+    <script src="resources/js/PlayControl.js"></script>
+    <script src="resources/js/Controller.js"></script>
+    <script src="resources/js/main.js"></script>
 </body>
 
 </html>
