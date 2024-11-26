@@ -5,6 +5,8 @@ class DataManager {
     fileInputNode;
     filesListNode;
 
+    arias = new Array();
+
     constructor(fileInputNode, filesListNode) {
         this.fileInputNode = fileInputNode;
         this.filesListNode = filesListNode;
@@ -37,23 +39,30 @@ class DataManager {
         let readFilePromises = new Array();
         for (let file of this.fileInputNode.files) {
             readFilePromises.push(this.readFile(file));
-            // .then(() => { }, (error) => { alert("error: in readFile " + error) });
         }
+
+        Promise.all(readFilePromises).then(
+            ((result) => { this.arias = result; }).bind(this),
+            (error) => { alert("error: in readFile " + error); }
+        );
 
     }
 
     async readFile(file) {
         let fileReader = new FileReader();
+        let fileContent = await (
+            new Promise(function (resolve, reject) {
+                fileReader.onerror = function () { alert('"file.name: "' + file.name); reject(fileReader.error); };
+                fileReader.onload = function () { resolve(fileReader.result); };
 
-        await (new Promise(function (resolve, reject) {
-            fileReader.onerror = function () { alert(fileReader.error); reject(); };
-            fileReader.onload = function () { alert(fileReader.result); resolve(); };
-
-            fileReader.readAsText(file);
-        }.bind(this)));
-
+                fileReader.readAsText(file);
+            }.bind(this)));
 
         fileReader.onerror = undefined;
         fileReader.onload = undefined;
+
+        // в fileContent большая строка
+
+        return new AriaContent(fileContent);
     }
 }
