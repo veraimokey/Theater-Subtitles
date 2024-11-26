@@ -16,7 +16,8 @@ class PlayControl {
 
     startPlay() {
         this.performanceWin = window.open('resources/html/performance-index.html', 'performancePage');
-        this.performanceWin.postMessage(JSON.stringify(
+        // this.performanceWin.postMessage(JSON.stringify(
+        this.performanceWin.postMessage((
             {
                 type: "init",
                 arias: this.getAriasContent(),
@@ -26,6 +27,16 @@ class PlayControl {
 
     synchronizeAct() {
         // this.performanceWin.postMessage("message", "*");
+    }
+
+    draw() {
+
+        this.performanceWin.postMessage((
+            {
+                type: "draw",
+                // arias: this.getAriasContent(),
+            }
+        ), "*");
     }
 
 }

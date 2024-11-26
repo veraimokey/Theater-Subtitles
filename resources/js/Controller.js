@@ -29,4 +29,8 @@ class Controller {
         window.addEventListener('keydown', this.playControl.synchronizeAct.bind(this.playControl));
 
     }
+
+    draw() {
+        this.playControl.draw();
+    }
 }

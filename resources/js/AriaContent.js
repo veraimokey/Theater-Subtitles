@@ -3,8 +3,14 @@
 class AriaContent {
     verses = new Array();
 
-    constructor(content) {
-        // в fileContent большая строка
+    constructor(content, initFlag) {
+
+        if (!(initFlag == undefined)) {
+            this.verses = content.verses;
+            return;
+        }
+
+        // в content большая строка
 
         let regExpNL = `\\r\\n`;
         let regExpTime = `(\\d{2}):(\\d{2}):(\\d\{2},\\d{3})`;

@@ -1,10 +1,12 @@
 'use stick'
 
 function main() {
-    // let timerUpdateFrame;
+    let timerUpdateFrame;
+    let controller;
 
-    // function updateFrame() {
-    // }
+    function updateFrame() {
+        controller.draw();
+    }
 
     // function processKeydown(event) {
     //     // verses.at(-1).activate();
@@ -16,7 +18,7 @@ function main() {
     // timerUpdateFrame = setInterval(updateFrame, 5);
     // window.addEventListener('keydown', processKeydown);
 
-    let controller = new Controller('controlForm', 'fileInput', 'startInput', 'filesList');
+    controller = new Controller('controlForm', 'fileInput', 'startInput', 'filesList');
 }
 
 
