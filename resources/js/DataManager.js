@@ -65,4 +65,8 @@ class DataManager {
 
         return new AriaContent(fileContent);
     }
+
+    getAriasContent() {
+        return this.arias;
+    }
 }
