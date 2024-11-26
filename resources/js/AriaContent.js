@@ -36,12 +36,13 @@ class AriaContent {
                 continue;
             }
 
-            timeStart = ((+contInf[1]) * 60 + (+contInf[2])) * 60 + (+contInf[3]);
-            timeFinish = ((+contInf[4]) * 60 + (+contInf[5])) * 60 + (+contInf[6]);
+            timeStart = ((+contInf[1]) * 60 + (+contInf[2])) * 60 + (+contInf[3].replace(/,/g, '.'));
+            timeFinish = ((+contInf[4]) * 60 + (+contInf[5])) * 60 + (+contInf[6].replace(/,/g, '.'));
 
             let indexBegin = contInf.index + contInf[0].length + 2; // 2 for next line
-            let indexEnd = contInfNext - 4; // 4 for 2 lines
+            let indexEnd;
             if (contInfNext == null) indexEnd = content.length;
+            else indexEnd = contInfNext.index - 4; // 4 for 2 lines
 
             this.verses.push(new VerseContent(content.slice(indexBegin, indexEnd), timeStart, timeFinish));
 
