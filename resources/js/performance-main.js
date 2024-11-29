@@ -58,24 +58,18 @@ function main() {
         drawFrame();
     }
 
-
-    let arias = new Array();
+    // function processKeydown(event) {
+    //     verses.at(-1).activate();
+    //     // alert(event);
+    //     // window.open('index.html')
+    // }
 
 
     timerUpdateFrame = setInterval(updateFrame, 5);
+    // document.onkeydown = processKeydown;
 
     window.addEventListener("message", function (event) {
-        // verses.at(-1).activate();
-
-        alert(event.data);
-        msg = JSON.parse(event.data);
-
-        if (msg.type == "init") {
-            arias = msg.arias;
-            //TODO теряем всё по пути
-
-            verses = arias.verses;
-        }
+        verses.at(-1).activate();
     });
 
 }

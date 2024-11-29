@@ -23,7 +23,6 @@ class Controller {
 
         this.playControl = new PlayControl(
             document.forms[this.controlFormID].elements[this.startInputID],
-            this.dataManager.getAriasContent.bind(this.dataManager),
         );
 
         window.addEventListener('keydown', this.playControl.synchronizeAct.bind(this.playControl));
