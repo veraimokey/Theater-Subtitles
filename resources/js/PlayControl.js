@@ -16,7 +16,9 @@ class PlayControl {
     }
 
     synchronizeAct() {
-        this.performanceWin.postMessage("message", "*");
+        let msg = new Message();
+        msg.type = "start";
+        this.performanceWin.postMessage(JSON.stringify(msg), "*");
     }
 
 }

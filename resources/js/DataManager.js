@@ -6,6 +6,7 @@ class DataManager {
     filesListNode;
 
     arias = new Array();
+    // rawData = new 
 
     constructor(fileInputNode, filesListNode) {
         this.fileInputNode = fileInputNode;

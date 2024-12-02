@@ -69,7 +69,18 @@ function main() {
     // document.onkeydown = processKeydown;
 
     window.addEventListener("message", function (event) {
-        verses.at(-1).activate();
+        let msg = JSON.parse(event.data);
+
+        this.alert(event.data);
+        if (msg.type == "start") {
+            verses.at(-1).activate();
+            return;
+        }
+
+        if (msg.type == "upload") {
+
+            return;
+        }
     });
 
 }
