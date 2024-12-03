@@ -2,6 +2,5 @@
 
 class Message {
     type;
-    name;
     data;
 }

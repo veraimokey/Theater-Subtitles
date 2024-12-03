@@ -77,7 +77,7 @@ function main() {
             return;
         }
 
-        if (msg.type == "upload") {
+        if (msg.type == "uploadData") {
 
             return;
         }

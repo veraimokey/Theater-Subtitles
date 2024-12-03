@@ -6,7 +6,7 @@ class DataManager {
     filesListNode;
 
     arias = new Array();
-    // rawData = new 
+    rawData = new Array();
 
     constructor(fileInputNode, filesListNode) {
         this.fileInputNode = fileInputNode;
@@ -29,12 +29,16 @@ class DataManager {
             this.filesListNode.firstChild.remove();
         }
 
+        this.rawData = [];
+
         for (let file of this.fileInputNode.files) {
             this.filesListNode.insertAdjacentHTML('beforeend',
                 '<li>' +
                 file.name +
                 '</li>'
             );
+
+            this.rawData.push(new RawData(file.name, "потом"))
         }
 
         let readFilePromises = new Array();
@@ -65,5 +69,9 @@ class DataManager {
         // в fileContent большая строка
 
         return new AriaContent(fileContent);
+    }
+
+    getRawData() {
+        return this.rawData;
     }
 }
