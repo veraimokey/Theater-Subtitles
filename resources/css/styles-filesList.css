@@ -38,3 +38,13 @@
 .filesList li+li {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+
+
+.timeDisplay {
+    padding-right: 12px;
+    /* padding-left: 12px; */
+    color: hwb(60 82% 0%);
+
+    min-width: 40px;
+}

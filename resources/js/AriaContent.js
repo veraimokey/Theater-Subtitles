@@ -97,4 +97,13 @@ class AriaContent {
             verse.updateFrame(this.timeStart);
         }
     }
+
+    getFeedback() {
+        let time = (Date.now() - this.timeStart) / 1000;
+
+        return "" +
+            (time < 100 ? "0" : "") +
+            (time < 10 ? "0" : "") +
+            time.toFixed(1);
+    }
 }

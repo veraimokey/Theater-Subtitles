@@ -31,10 +31,17 @@ class PlayAgent {
 
 
     updateFrame() {
+        let msg = new Message();
+        msg.type = "feedback";
+        msg.data = new FeedbackData();
+
         // this.arias.at(-1).updateFrame();
         for (let ariaI = 0; ariaI <= this.ariaNum; ++ariaI) {
             this.arias[ariaI].updateFrame();
+            msg.data.currentTimes.push(this.arias[ariaI].getFeedback());
         }
+
+        window.opener.postMessage(JSON.stringify(msg), "*");
     }
 
 }

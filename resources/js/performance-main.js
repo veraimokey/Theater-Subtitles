@@ -8,6 +8,7 @@ function main() {
     window.addEventListener("message", function (event) {
         let msg = JSON.parse(event.data);
 
+        // console.log(event.source);
         // this.alert(event.data);
         if (msg.type == "start") {
 

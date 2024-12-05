@@ -16,7 +16,24 @@ function main() {
     // timerUpdateFrame = setInterval(updateFrame, 5);
     window.addEventListener('keydown', processKeydown);
 
-    let controller = new Controller('controlForm', 'fileInput', 'startInput', 'filesList');
+    let controller = new Controller('controlForm', 'fileInput', 'startInput', 'filesList', 'displayStatus');
+
+    // window.addEventListener("beforeunload", function () {
+    //     return false;
+    // });
+    window.onbeforeunload = function () {
+        return false;
+    };
+
+
+    window.addEventListener("message", function (event) {
+        let msg = JSON.parse(event.data);
+
+        if (msg.type == "feedback") {
+            // console.log(msg.data);
+            controller.processFeedback(msg.data);
+        }
+    });
 }
 
 
