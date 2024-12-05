@@ -58,12 +58,19 @@ class AriaContent {
             if (contInfNext == null) indexEnd = content.length;
             else indexEnd = contInfNext.index - 4; // 4 for 2 lines
 
+            let param1 = undefined;
+            let param2 = undefined;
             if (this.isRenderable) {
-                this.verses.push(new VerseContent(content.slice(indexBegin, indexEnd), VtimeStart, timeFinish, true,
-                    this.key + "--v" + (+num - 1)));
-            } else {
-                this.verses.push(new VerseContent(content.slice(indexBegin, indexEnd), VtimeStart, timeFinish));
+                // this.verses.push(new VerseContent(content.slice(indexBegin, indexEnd), VtimeStart, timeFinish, true,
+                // this.key + "--v" + (+num - 1)));
+                param1 = true;
+                param2 = this.key + "--v" + (+num - 1);
             }
+
+            this.verses.push(new VerseContent(
+                (content.slice(indexBegin, indexEnd)).replace(RegExp(regExpNL, "g"), '<br>'),
+                VtimeStart, timeFinish, param1, param2
+            ));
 
             if (contInfNext == null) break;
 

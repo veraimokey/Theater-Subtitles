@@ -25,16 +25,16 @@ class PlayAgent {
 
     synchronizeAct() {
         this.timerUpdateFrame = setInterval(this.updateFrame.bind(this), 5);
-        this.arias.at(-1).start();
-        this.ariaNum = 1;
+        this.ariaNum++;
+        this.arias[this.ariaNum].start();
     }
 
 
     updateFrame() {
-        this.arias.at(-1).updateFrame();
-        // for (let ariaI = 0; ariaI <= this.ariaNum; ++ariaI) {
-        //     arias[ariaI].updateFrame();
-        // }
+        // this.arias.at(-1).updateFrame();
+        for (let ariaI = 0; ariaI <= this.ariaNum; ++ariaI) {
+            this.arias[ariaI].updateFrame();
+        }
     }
 
 }

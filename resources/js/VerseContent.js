@@ -1,5 +1,7 @@
 'use stick'
 
+let _MODE_ = false;
+
 class VerseContent {
     text;
     timeStart;
@@ -50,19 +52,33 @@ class VerseContent {
     updateFrame(timeOffset) {
         if (!this.checkRenderable()) return;
 
+        // console.log(this.key + ":::");
         let verseElem = document.getElementById('verse-' + this.key);
 
         let positionBegin = +window.innerHeight;
         let positionEnd = -verseElem.offsetHeight;
 
-        let partPassed = ((Date.now() - timeOffset) / 1000.0 + this.timeStart) / (this.timeFinish - this.timeStart);
+        let partPassed = ((Date.now() - timeOffset) / 1000.0 - this.timeStart) / (this.timeFinish - this.timeStart);
 
+        // console.log(this.key + "!!!");
 
         if (partPassed > 0 && partPassed < 1) {
-            verseElem.style.top = (
-                +positionBegin * (+1 - partPassed) +
-                +positionEnd * (+partPassed)
-            ) + 'px';
+            // console.log(this.key + ":::" + partPassed);
+
+            if (_MODE_) {
+
+                verseElem.style.top = (
+                    +positionBegin * (+1 - partPassed) +
+                    +positionEnd * (+partPassed)
+                ) + 'px';
+
+            } else {
+
+                verseElem.style.top = (
+                    (+window.innerHeight - verseElem.offsetHeight) / 2
+                ) + 'px';
+
+            }
 
             verseElem.style.visibility = 'visible';
         } else {
