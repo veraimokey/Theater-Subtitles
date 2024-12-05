@@ -74,7 +74,7 @@ function main() {
     window.addEventListener("message", function (event) {
         let msg = JSON.parse(event.data);
 
-        this.alert(event.data);
+        // this.alert(event.data);
         if (msg.type == "start") {
             verses.at(-1).activate();
 
@@ -83,11 +83,12 @@ function main() {
         }
 
         if (msg.type == "uploadData") {
-            console.log("вот?");
-            playAgent.startPlay(msg.data);
-            // alert("вот: " + playAgent.arias.length);
-            console.log("вот: " + playAgent.arias.length);
 
+            console.log("вот?");
+
+            playAgent.startPlay(msg.data);
+
+            console.log("вот: " + playAgent.arias.length);
 
             return;
         }

@@ -4,9 +4,20 @@ class AriaContent {
     verses = new Array();
 
     isRenderable = false;
+    key;
     timeStart;
 
-    constructor(content, isRenderable) {
+    constructor(content, isRenderable, key) {
+        if (isRenderable == true) {
+            this.isRenderable = true;
+        } else {
+            this.isRenderable = false;
+        }
+
+        if (this.isRenderable) {
+            this.key = key;
+        }
+
         // в fileContent большая строка
 
         let regExpNL = `\\r\\n`;
@@ -15,7 +26,7 @@ class AriaContent {
 
         let contInf;
         let contInfNext;
-        let timeStart;
+        let VtimeStart;
         let timeFinish;
 
         for (let num = 1; true; num++) {
@@ -39,7 +50,7 @@ class AriaContent {
                 continue;
             }
 
-            timeStart = ((+contInf[1]) * 60 + (+contInf[2])) * 60 + (+contInf[3].replace(/,/g, '.'));
+            VtimeStart = ((+contInf[1]) * 60 + (+contInf[2])) * 60 + (+contInf[3].replace(/,/g, '.'));
             timeFinish = ((+contInf[4]) * 60 + (+contInf[5])) * 60 + (+contInf[6].replace(/,/g, '.'));
 
             let indexBegin = contInf.index + contInf[0].length + 2; // 2 for next line
@@ -47,22 +58,36 @@ class AriaContent {
             if (contInfNext == null) indexEnd = content.length;
             else indexEnd = contInfNext.index - 4; // 4 for 2 lines
 
-            this.verses.push(new VerseContent(content.slice(indexBegin, indexEnd), timeStart, timeFinish));
+            if (this.isRenderable) {
+                this.verses.push(new VerseContent(content.slice(indexBegin, indexEnd), VtimeStart, timeFinish, true,
+                    this.key + "--v" + (+num - 1)));
+            } else {
+                this.verses.push(new VerseContent(content.slice(indexBegin, indexEnd), VtimeStart, timeFinish));
+            }
 
             if (contInfNext == null) break;
 
         }
+    }
 
-        if (isRenderable == true) {
-            this.isRenderable = true;
-        } else {
-            this.isRenderable = false;
-        }
+    checkRenderable() {
+        if (this.isRenderable) return true;
+
+        alert("ERR tried to play unplaiable aria");
+        return false;
     }
 
     start() {
-        if (!this.isRenderable) return;
+        if (!this.checkRenderable()) return;
 
         this.timeStart = Date.now();
+    }
+
+    updateFrame() {
+        if (!this.checkRenderable()) return;
+
+        for (let verse of this.verses) {
+            verse.updateFrame(this.timeStart);
+        }
     }
 }
