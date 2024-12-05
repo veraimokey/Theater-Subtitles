@@ -3,7 +3,9 @@
 class AriaContent {
     verses = new Array();
 
-    constructor(content) {
+    isRenderable;
+
+    constructor(content, isRenderable) {
         // в fileContent большая строка
 
         let regExpNL = `\\r\\n`;
@@ -50,5 +52,10 @@ class AriaContent {
 
         }
 
+        if (isRenderable == true) {
+            this.isRenderable = true;
+        } else {
+            this.isRenderable = false;
+        }
     }
 }

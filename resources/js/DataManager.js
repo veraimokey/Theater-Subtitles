@@ -42,6 +42,7 @@ class DataManager {
         }
 
         let readFilePromises = new Array();
+
         let index = 0;
         for (let file of this.fileInputNode.files) {
             readFilePromises.push(this.readFile(file, index));
@@ -65,6 +66,7 @@ class DataManager {
                 fileReader.readAsText(file);
                 // }.bind(this)));
             }));
+
 
         fileReader.onerror = undefined;
         fileReader.onload = undefined;

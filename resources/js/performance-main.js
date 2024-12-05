@@ -1,6 +1,9 @@
 'use stick'
 
 let verses = new Array();
+let arias = new Array();
+
+let playAgent = new PlayAgent();
 
 function drawFrame() {
     for (let verse of verses) {
@@ -74,10 +77,14 @@ function main() {
         this.alert(event.data);
         if (msg.type == "start") {
             verses.at(-1).activate();
+
+            playAgent.synchronizeAct();
             return;
         }
 
         if (msg.type == "uploadData") {
+            playAgent.startPlay(msg.data);
+
 
             return;
         }
