@@ -42,10 +42,15 @@ class DataManager {
         }
 
         let readFilePromises = new Array();
-        let index = 0;
-        for (let file of this.fileInputNode.files) {
-            readFilePromises.push(this.readFile(file, index).bind(this));
-            ++index;
+        // let index = 0;
+        for (let index = 0; index < this.fileInputNode.files.length; ++index) {
+            // for (let file of this.fileInputNode.files) {
+            alert("~");
+            // readFilePromises.push(this.readFile(file, index).bind(this));
+            // readFilePromises[index] = this.readFile(file, index).bind(this);
+            readFilePromises[index] = (this.readFile(file, index)).bind(this);
+            alert("!");
+            index += 1;
         }
 
         Promise.all(readFilePromises).then(
@@ -56,6 +61,7 @@ class DataManager {
     }
 
     async readFile(file, index) {
+        alert("!!64");
         let fileReader = new FileReader();
         let fileContent = await (
             new Promise(function (resolve, reject) {
@@ -64,13 +70,14 @@ class DataManager {
 
                 fileReader.readAsText(file);
             }));
-            // }.bind(this)));
+        // }.bind(this)));
 
         fileReader.onerror = undefined;
         fileReader.onload = undefined;
 
         // в fileContent большая строка
-        this.rawData[index] = fileContent;
+        alert("index:" + index);
+        this.rawData[index].data = fileContent;
 
         return new AriaContent(fileContent);
     }
