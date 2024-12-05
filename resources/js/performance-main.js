@@ -83,15 +83,19 @@ function main() {
         }
 
         if (msg.type == "uploadData") {
+            console.log("вот?");
             playAgent.startPlay(msg.data);
+            // alert("вот: " + playAgent.arias.length);
+            console.log("вот: " + playAgent.arias.length);
 
 
             return;
         }
     });
 
+    console.log("main done");
 }
 
 
-
-main();
+document.addEventListener("DOMContentLoaded", main, { once: true });
+// main();

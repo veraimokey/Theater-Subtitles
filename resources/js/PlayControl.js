@@ -20,7 +20,14 @@ class PlayControl {
         let msg = new Message();
         msg.type = "uploadData";
         msg.data = this.rawDataGetter();
-        this.performanceWin.postMessage(JSON.stringify(msg), "*");
+
+
+        setTimeout((() => {
+            this.performanceWin.postMessage(JSON.stringify(msg), "*");
+        }).bind(this), 100); // important fix!!!
+
+        // this.performanceWin.addEventListener("onload", main, { once: true }); // НЕ РАБОТАЕТ
+
     }
 
     synchronizeAct() {

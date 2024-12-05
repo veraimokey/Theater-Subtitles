@@ -3,7 +3,8 @@
 class AriaContent {
     verses = new Array();
 
-    isRenderable;
+    isRenderable = false;
+    timeStart;
 
     constructor(content, isRenderable) {
         // в fileContent большая строка
@@ -57,5 +58,11 @@ class AriaContent {
         } else {
             this.isRenderable = false;
         }
+    }
+
+    start() {
+        if (!this.isRenderable) return;
+
+        this.timeStart = Date.now();
     }
 }

@@ -73,7 +73,7 @@ class DataManager {
 
         // в fileContent большая строка
         this.rawData[index].data = fileContent;
-        alert("index: " + index);
+        // alert("index: " + index);
 
         return new AriaContent(fileContent);
     }
