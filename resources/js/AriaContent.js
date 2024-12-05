@@ -102,8 +102,8 @@ class AriaContent {
         let time = (Date.now() - this.timeStart) / 1000;
 
         return "" +
-            (time < 100 ? "0" : "") +
-            (time < 10 ? "0" : "") +
+            (+time.toFixed(1) < 100 ? "0" : "") +
+            (+time.toFixed(1) < 10 ? "0" : "") +
             time.toFixed(1);
     }
 }
