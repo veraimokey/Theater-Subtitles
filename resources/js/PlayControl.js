@@ -20,7 +20,6 @@ class PlayControl {
         let msg = new Message();
         msg.type = "uploadData";
         msg.data = this.rawDataGetter();
-        alert(msg);
         this.performanceWin.postMessage(JSON.stringify(msg), "*");
     }
 
