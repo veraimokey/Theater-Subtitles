@@ -8,7 +8,7 @@ Local web app for playing subtitles during a play on stage. With no external dep
 
   or
 
-- download latest [release](/releases/latest) or commit
+- download latest [release](../../releases/latest) or commit
 - unzip archive
 
 ## Getting started
