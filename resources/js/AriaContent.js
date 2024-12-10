@@ -20,7 +20,11 @@ class AriaContent {
 
         // в fileContent большая строка
 
-        let regExpNL = `\\r\\n`;
+        content = content.replace(/\r\n/g, '\n');
+        // alert(JSON.stringify(content));
+
+        // let regExpNL = `\\r\\n`;
+        let regExpNL = `\\n`;
         let regExpTime = `(\\d{2}):(\\d{2}):(\\d\{2},\\d{3})`;
         let regExpArrow = ` --> `;
 
@@ -53,10 +57,12 @@ class AriaContent {
             VtimeStart = ((+contInf[1]) * 60 + (+contInf[2])) * 60 + (+contInf[3].replace(/,/g, '.'));
             timeFinish = ((+contInf[4]) * 60 + (+contInf[5])) * 60 + (+contInf[6].replace(/,/g, '.'));
 
-            let indexBegin = contInf.index + contInf[0].length + 2; // 2 for next line
+            // let indexBegin = contInf.index + contInf[0].length + 2; // 2 for next line
+            let indexBegin = contInf.index + contInf[0].length + 1; // 1 for next line
             let indexEnd;
             if (contInfNext == null) indexEnd = content.length;
-            else indexEnd = contInfNext.index - 4; // 4 for 2 lines
+            // else indexEnd = contInfNext.index - 4; // 4 for 2 lines
+            else indexEnd = contInfNext.index - 2; // 2 for 2 lines
 
             let param1 = undefined;
             let param2 = undefined;
