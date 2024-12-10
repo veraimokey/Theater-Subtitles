@@ -2,14 +2,29 @@
 
 Local web app for playing subtitles during a play on stage. With no external dependencies required. Use common `.srt` subtitle format.
 
+<p float="left">
+  <img src="./resources/img/Screenshot%200.1.png" width="49%" />
+  <img src="./resources/img/Screenshot%200.2.png" width="49%" /> 
+</p>
+
+
 ## Installation
 
 * clone repository
 
   or
 
-- download latest release or commit
+- download latest [release](../../releases/latest) or commit
 - unzip archive
+
+<p float="left">
+  <img src="./resources/img/Screenshot%201.1.png" width="49%" />
+</p>
+<p float="left">
+  <img src="./resources/img/Screenshot%201.2.png" width="49%" />
+  <img src="./resources/img/Screenshot%201.3.png" width="49%" /> 
+</p>
+
 
 ## Getting started
 
@@ -22,14 +37,14 @@ Local web app for playing subtitles during a play on stage. With no external dep
 
 ## Interface
 
-* `Загрузить файлы субтитров` (_download subtitle files_) button — (re)upload all `.srt` files
-* `Запустить спектакль` (_start performance_) — open performance page with current subtitles list
+* ![`Загрузить файлы субтитров`](./resources/img/Screenshot%203.1.png) (_download subtitle files_) button — (re)upload all `.srt` files
+* ![`Запустить спектакль`](./resources/img/Screenshot%203.2.png) (_start performance_) — open performance page with current subtitles list
 * feedback indicator:
   |   |   |
   |:-:|:-:|
-  | _ok_ | stable connection with performance page |
-  | `no performance` | performance page is closed |
-  | `no info` | unstable connection with performance page |
+  | ![_Nothing(OK)_](./resources/img/Screenshot%203.3.png)    | stable connection with performance page |
+  | ![`no performance`](./resources/img/Screenshot%203.4.png) | performance page is closed |
+  | ![`no info`](./resources/img/Screenshot%203.5.png)        | unstable connection with performance page |
 
 
 - press any key — start a beginning of the next aria (next one subtitle file)
