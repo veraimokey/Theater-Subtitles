@@ -35,6 +35,12 @@ Local web app for playing subtitles during a play on stage. With no external dep
 * use main window as staff control page and subordinate window as a performance page
 * press any keyboard key (while main window is focused) to start a beginning of the next aria (next one subtitle file)
 
+<p float="left">
+  <img src="./resources/img/Screenshot%202.1.png" width="49%" />
+  <img src="./resources/img/Screenshot%202.2.png" width="49%" /> 
+</p>
+
+
 ## Interface
 
 * ![`Загрузить файлы субтитров`](./resources/img/Screenshot%203.1.png) (_download subtitle files_) button — (re)upload all `.srt` files
