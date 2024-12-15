@@ -61,3 +61,41 @@
 .button input:disabled+span {
     background-color: #eee;
 }
+
+
+
+
+.display {
+    position: relative;
+    display: inline-block;
+    /* cursor: pointer; */
+    outline: none;
+    text-decoration: none;
+    font-size: 14px;
+    vertical-align: middle;
+    color: rgb(255 255 255);
+    text-align: center;
+    border-radius: 20px;
+    /* border-radius: 4px; */
+    line-height: 22px;
+    height: 40px;
+    /* width: 40px; */
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: none;
+    margin: 10px;
+    transition: background-color 0.2s;
+}
+
+.display.good {
+    background-color: #419152;
+}
+
+.display.bad {
+    /* background-color: #8C4F40; */
+    background-color: #C4200D;
+}
+
+.display.noInfo {
+    background-color: #BCB10D;
+}
